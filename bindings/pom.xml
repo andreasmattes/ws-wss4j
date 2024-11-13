@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.apache.wss4j</groupId>
         <artifactId>wss4j-parent</artifactId>
-        <version>3.0.4</version>
+        <version>3.0.4.20241111</version>
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -38,6 +38,10 @@
         <dependency>
             <groupId>org.apache.santuario</groupId>
             <artifactId>xmlsec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
         </dependency>
     </dependencies>
 
