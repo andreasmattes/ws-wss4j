@@ -48,6 +48,7 @@ import org.apache.wss4j.dom.util.WSSecurityUtil;
 import org.apache.xml.security.encryption.XMLCipherUtil;
 import org.apache.xml.security.encryption.XMLEncryptionException;
 import org.apache.xml.security.encryption.keys.content.AgreementMethodImpl;
+import org.apache.xml.security.encryption.params.ConcatKDFParams;
 import org.apache.xml.security.encryption.params.KeyAgreementParameters;
 import org.apache.xml.security.encryption.params.KeyDerivationParameters;
 import org.apache.xml.security.exceptions.XMLSecurityException;
@@ -548,7 +549,7 @@ public class WSSecEncryptedKey extends WSSecBase {
         KeyAgreementParameters dhSpec;
         try {
             int keyBitLength = org.apache.xml.security.utils.KeyUtils.getAESKeyBitSizeForWrapAlgorithm(keyEncAlgo);
-            KeyDerivationParameters kdf = XMLCipherUtil.constructConcatKeyDerivationParameter(keyBitLength, digestAlgo);
+            KeyDerivationParameters kdf = ConcatKDFParams.createBuilder(keyBitLength, digestAlgo).build();
             KeyPair dhKeyPair = org.apache.xml.security.utils.KeyUtils.generateEphemeralDHKeyPair(recipientPublicKey, null);
             dhSpec = XMLCipherUtil.constructAgreementParameters(keyAgreementMethod,
                     KeyAgreementParameters.ActorType.ORIGINATOR, kdf, null, recipientPublicKey);

@@ -23,7 +23,7 @@
         <groupId>org.apache.wss4j</groupId>
         <artifactId>wss4j-parent</artifactId>
         <relativePath>../parent/pom.xml</relativePath>
-        <version>3.0.3</version>
+        <version>3.0.3.20241111</version>
     </parent>
     <artifactId>wss4j-ws-security-dom</artifactId>
     <name>Apache WSS4J DOM WS-Security</name>
@@ -35,6 +35,7 @@
         <wss4j.osgi.import>
             com.sun.xml.messaging.saaj.soap;resolution:=optional,
             com.sun.xml.internal.messaging.saaj.soap;resolution:=optional,
+            org.slf4j*;version="[1.7,3)";resolution:=optional,
             *
         </wss4j.osgi.import>
         <wss4j.module.name>org.apache.wss4j.dom</wss4j.module.name>
